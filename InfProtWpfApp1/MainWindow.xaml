@@ -1,0 +1,114 @@
+﻿<Window x:Class="InfProtWpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfProtWpfApp1"
+        xmlns:viewModel="clr-namespace:InfProtWpfApp1.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#272537"
+            CornerRadius="20"
+            BorderBrush="#303344"
+            BorderThickness="2">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding User.Login}"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Foreground="White"
+                   FontSize="22"
+                   Margin="20,0,0,0"/>
+
+            <Border Grid.Column="1"
+                    Background="Transparent"
+                    MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,15,0">
+
+                    <Button Content="Выйти"
+                            Height="50"
+                            Width="150"
+                            Foreground="White"
+                            FontSize="14"
+                            Click="ExitButton_Click"
+                            IsCancel="True"
+                            Style="{StaticResource MyButtonTheme}"/>
+
+                    <Button Content="✖"
+                            Height="50"
+                            Width="50"
+                            Foreground="White"
+                            FontSize="20"
+                            Click="CloseButton_Click"
+                            Style="{StaticResource MyButtonTheme}"/>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Пользователи"
+                             x:Name="UsersRB"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding UsersViewCommand}"/>
+                
+                <RadioButton Content="Доступ к данным"
+                             x:Name="DataRB"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ChangeDataKeyViewCommand}"/>
+
+                <RadioButton Content="Изменить пароль"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ChangePasswordViewCommand}"/>
+
+                <RadioButton Content="Справка"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             IsChecked="True"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ReferenceViewCommand}"/>
+
+            </StackPanel>
+
+            <ContentControl x:Name="MyContent"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+
+        </Grid>
+
+    </Border>
+
+</Window>

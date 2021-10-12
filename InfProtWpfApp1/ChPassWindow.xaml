@@ -1,0 +1,126 @@
+﻿<Window x:Class="InfProtWpfApp1.ChPassWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfProtWpfApp1"
+        xmlns:viewModel="clr-namespace:InfProtWpfApp1.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="ChPassWindow" Height="505" Width="700"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewModel:ChangePasswordViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#272537"
+            CornerRadius="20"
+            BorderBrush="#303344"
+            BorderThickness="2"
+            MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="Наличие цифр, знаков препинания и знаков арифметических операций в новом пароле"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Foreground="Gainsboro"
+                           FontSize="15"
+                           Margin="30,20,0,0"/>
+
+                <TextBlock Text="{Binding ConfinedStatus}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Foreground="Gainsboro"
+                           FontSize="15"
+                           Margin="30,4,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Введите старый пароль:"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontSize="18"
+                           Margin="20,10,0,0"/>
+
+                <PasswordBox Width="500"
+                             Height="40"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center"
+                             Margin="10, 10, 0, 1"
+                             Style="{StaticResource ModernOldPasswordBox}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2">
+                <TextBlock Text="Введите новый пароль:"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontSize="18"
+                           Margin="20,10,0,0"/>
+
+                <PasswordBox Width="500"
+                             Height="40"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center"
+                             Margin="10, 10, 0, 2"
+                             Style="{StaticResource ModernNewPasswordBox}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3">
+                <TextBlock Text="Повторите новый пароль:"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontSize="18"
+                           Margin="20,10,0,0"/>
+
+                <PasswordBox Width="500"
+                             Height="40"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center"
+                             Margin="10, 10, 0, 3"
+                             Style="{StaticResource ModernRepeatPasswordBox}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                
+                <Button Grid.Row="4"
+                        Content="Изменить"
+                        Height="50"
+                        Width="150"
+                        Foreground="White"
+                        FontSize="14"
+                        HorizontalAlignment="Left"
+                        IsDefault="True"
+                        Command="{Binding ChangeCommand}"
+                        Style="{StaticResource MyButtonTheme}"/>
+
+                <Button Grid.Row="4"
+                        Content="Отмена"
+                        Height="50"
+                        Width="150"
+                        Foreground="White"
+                        Margin="40,0,0,0"
+                        FontSize="14"
+                        HorizontalAlignment="Left"
+                        IsCancel="True"
+                        Style="{StaticResource MyButtonTheme}" Click="Button_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="InfProtWpfApp1.MVVM.View.ReferenceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InfProtWpfApp1.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="505" d:DesignWidth="700"
+             Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="О программе"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="32"/>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Данную программу создал студент группы ИДБ-18-02 Саржан Михаил Андреевич."
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="24"
+                       Margin="20,10,0,0"/>
+
+            <TextBlock Text="Номер варианта - 18"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="24"
+                       Margin="20,10,0,0"/>
+
+            <TextBlock Text="Соответсвующее ограничение на пароль: 'Наличие цифр, знаков препинания и знаков арифметических операций.'"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="Gainsboro"
+                       FontSize="24"
+                       Margin="40,10,0,0"/>
+            
+            <TextBlock Text="Шифрование: 'Блочный тип симметричного шифрования, обратная связь по шифротексту, добавление к ключу случайного значения, алгоритм шифрования SHA'"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Foreground="Gainsboro"
+                       FontSize="24"
+                       Margin="40,10,0,0"/>
+        </StackPanel>
+
+        <TextBlock Text="© Copyright SarzhanMickhail 2021"
+                   Grid.Row="2"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="Gray"
+                   FontSize="18"
+                   Margin="0,10,0,0"/>
+    </Grid>
+</UserControl>
